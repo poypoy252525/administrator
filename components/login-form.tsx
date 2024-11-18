@@ -37,6 +37,8 @@ export function LoginForm() {
       await signIn("credentials", {
         username: credentials.username,
         password: credentials.password,
+        redirect: true,
+        callbackUrl: "/dashboard",
       });
       console.log("login");
     } catch (error) {
