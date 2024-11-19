@@ -12,3 +12,24 @@ datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
 }
+
+model Student {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  studentId  String   @unique
+  email      String   @unique
+  firstName  String
+  middleName String
+  lastName   String
+  fullName   String?
+  sex        Sex
+  birthdate  DateTime
+  phone      String
+  address    String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+enum Sex {
+  MALE
+  FEMALE
+}

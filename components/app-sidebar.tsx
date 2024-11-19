@@ -14,7 +14,7 @@ import {
   SidebarRail,
 } from "@/components/ui/sidebar";
 import { VersionSwitcher } from "@/components/version-switcher";
-import { LayoutDashboard, User2 } from "lucide-react";
+import { LayoutDashboard, NotebookPen, Pen, User2 } from "lucide-react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
@@ -34,13 +34,23 @@ const data = {
       ],
     },
     {
-      title: "students",
+      title: "management",
       url: "#",
       items: [
         {
-          title: "List of students",
-          url: "/students/list-of-students",
+          title: "Students",
+          url: "/students",
           icon: User2,
+        },
+        {
+          title: "Exams",
+          url: "/exams",
+          icon: NotebookPen,
+        },
+        {
+          title: "Results",
+          url: "/results",
+          icon: Pen,
         },
       ],
     },
