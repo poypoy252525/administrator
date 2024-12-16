@@ -33,3 +33,30 @@ enum Sex {
   MALE
   FEMALE
 }
+
+model Exam {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  startTime DateTime
+  endTime   DateTime
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  form      ExamForm?
+}
+
+model ExamForm {
+  id            String          @id @default(auto()) @map("_id") @db.ObjectId
+  examId        String          @unique @db.ObjectId
+  exam          Exam            @relation(fields: [examId], references: [id])
+  title         String
+  questionnaire Questionnaire[]
+}
+
+model Questionnaire {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  examFormId String   @db.ObjectId
+  examForm   ExamForm @relation(fields: [examFormId], references: [id])
+  question   String
+  choices    String[]
+  answer     String
+  number     Int
+}

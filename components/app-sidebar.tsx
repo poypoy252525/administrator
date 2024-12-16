@@ -60,7 +60,7 @@ const data = {
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const pathname = usePathname();
   return (
-    <Sidebar {...props}>
+    <Sidebar {...props} variant="floating">
       <SidebarHeader>
         <VersionSwitcher
           versions={data.versions}
