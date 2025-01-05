@@ -14,12 +14,10 @@ export const POST = async (request: NextRequest) => {
 
   const exam = await prisma.exam.create({
     data: {
-      endTime: new Date(),
-      startTime: new Date(),
       form: {
         create: {
           title: data.title,
-          questionnaire: {
+          questionnaires: {
             createMany: {
               data: data.questionnaires,
             },

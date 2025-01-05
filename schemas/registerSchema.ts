@@ -10,6 +10,10 @@ export const registerSchema = z.object({
   birthdate: z.string(),
   phone: z.string(),
   address: z.string(),
+  fileName: z.string(),
+  mimeType: z.string(),
+  size: z.number(),
+  url: z.string(),
 });
 
 export type RegisterForm = z.infer<typeof registerSchema>;

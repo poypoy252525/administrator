@@ -14,7 +14,14 @@ import {
   SidebarRail,
 } from "@/components/ui/sidebar";
 import { VersionSwitcher } from "@/components/version-switcher";
-import { LayoutDashboard, NotebookPen, Pen, User2 } from "lucide-react";
+import {
+  CalendarClock,
+  LayoutDashboard,
+  ListChecks,
+  NotebookPen,
+  Pen,
+  User2,
+} from "lucide-react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
@@ -46,6 +53,16 @@ const data = {
           title: "Exams",
           url: "/exams",
           icon: NotebookPen,
+        },
+        {
+          title: "Schedules",
+          url: "/schedules",
+          icon: CalendarClock,
+        },
+        {
+          title: "Admission",
+          url: "/admission",
+          icon: ListChecks,
         },
         {
           title: "Results",

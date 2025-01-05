@@ -41,7 +41,9 @@ const QuestionnaireCard = ({ index, setQuestionnaires }: Props) => {
   useEffect(() => {
     setQuestionnaires((prev) =>
       prev.map((item, i) =>
-        i === index ? { question, choices: options, answer, number: i } : item
+        i === index
+          ? { question, choices: options, answer, number: item.number }
+          : item
       )
     );
   }, [options, question, setQuestionnaires, index, answer]);
