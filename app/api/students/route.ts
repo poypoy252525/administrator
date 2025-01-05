@@ -49,6 +49,7 @@ export const POST = async (request: NextRequest) => {
         },
       },
     });
+
     return NextResponse.json(student, { status: 201 });
   } catch (error) {
     console.log(error);

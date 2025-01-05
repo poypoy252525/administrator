@@ -110,4 +110,5 @@ model Result {
   student        Student         @relation(fields: [studentId], references: [id])
   questionnaires Questionnaire[]
   score          Int
+  remarks        String
 }

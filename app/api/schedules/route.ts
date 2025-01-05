@@ -6,6 +6,13 @@ export const GET = async () => {
     where: {
       OR: [{ status: "PENDING" }, { status: "ONGOING" }],
     },
+    include: {
+      exam: {
+        select: {
+          form: true,
+        },
+      },
+    },
   });
 
   if (!schedules)

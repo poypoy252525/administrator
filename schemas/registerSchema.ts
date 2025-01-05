@@ -14,6 +14,7 @@ export const registerSchema = z.object({
   mimeType: z.string(),
   size: z.number(),
   url: z.string(),
+  password: z.string()
 });
 
 export type RegisterForm = z.infer<typeof registerSchema>;
