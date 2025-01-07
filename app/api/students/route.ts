@@ -26,9 +26,12 @@ export const POST = async (request: NextRequest) => {
       { status: 409 }
     );
 
+  console.log(data.pushToken);
+
   try {
     student = await prisma.student.create({
       data: {
+        expoPushToken: data.pushToken,
         email: data.email,
         firstName: data.firstName,
         middleName: data.middleName,

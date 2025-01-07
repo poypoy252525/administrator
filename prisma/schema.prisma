@@ -14,24 +14,25 @@ datasource db {
 }
 
 model Student {
-  id           String        @id @default(auto()) @map("_id") @db.ObjectId
-  studentId    String        @unique
-  email        String        @unique
-  firstName    String
-  middleName   String
-  lastName     String
-  fullName     String?
-  sex          Sex
-  birthdate    DateTime
-  phone        String
-  address      String
-  createdAt    DateTime      @default(now())
-  updatedAt    DateTime      @updatedAt
-  status       StudentStatus @default(PENDING)
-  examSchedule Schedule?
-  credentials  Credential[]
-  hasTakenExam Boolean       @default(false)
-  result       Result?
+  id            String        @id @default(auto()) @map("_id") @db.ObjectId
+  studentId     String        @unique
+  email         String        @unique
+  firstName     String
+  middleName    String
+  lastName      String
+  fullName      String?
+  sex           Sex
+  birthdate     DateTime
+  phone         String
+  address       String
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+  status        StudentStatus @default(PENDING)
+  examSchedule  Schedule?
+  credentials   Credential[]
+  hasTakenExam  Boolean       @default(false)
+  result        Result?
+  expoPushToken String
 }
 
 enum StudentStatus {
