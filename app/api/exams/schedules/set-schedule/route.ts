@@ -10,7 +10,6 @@ export const POST = async (request: NextRequest) => {
       student: {
         connect: {
           email: body.email,
-          studentId: body.studentId,
         },
       },
     },

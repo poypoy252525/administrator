@@ -25,6 +25,18 @@ const CredentialCard = ({
       console.error(error);
     }
   };
+
+  const handleReject = async () => {
+    try {
+      await axios.post(`/api/students/admission/reject`, {
+        studentId,
+      });
+      router.refresh();
+    } catch (error) {
+      console.error("Error: ", error);
+    }
+  };
+
   return (
     <Card>
       <CardHeader className="flex flex-row items-center justify-between">
@@ -33,7 +45,7 @@ const CredentialCard = ({
           <Button size="sm" onClick={handleApprove}>
             Approve
           </Button>
-          <Button size="sm" variant="destructive">
+          <Button size="sm" variant="destructive" onClick={handleReject}>
             Reject
           </Button>
         </div>
