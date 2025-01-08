@@ -4,8 +4,7 @@ import { StudentStatus } from "@prisma/client";
 import axios from "axios";
 import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
-import RejectOptionDialog from "./RejectOptionDialog";
+import { useState } from "react";
 
 interface Props {
   studentId: string;
@@ -50,17 +49,15 @@ const AcceptDeclineButton = ({ studentId }: Props) => {
         {approveLoading && <Loader2 className="animate-spin" />}
         Approve
       </Button>
-      <RejectOptionDialog>
-        <Button
-          size="sm"
-          variant="destructive"
-          onClick={handleReject}
-          disabled={declinedLoading}
-        >
-          {declinedLoading && <Loader2 className="animate-spin" />}
-          Reject
-        </Button>
-      </RejectOptionDialog>
+      <Button
+        size="sm"
+        variant="destructive"
+        onClick={handleReject}
+        disabled={declinedLoading}
+      >
+        {declinedLoading && <Loader2 className="animate-spin" />}
+        Reject
+      </Button>
     </div>
   );
 };
