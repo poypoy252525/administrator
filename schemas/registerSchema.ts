@@ -1,7 +1,13 @@
 import z from "zod";
 
+const credentialSchema = z.object({
+  fileName: z.string(),
+  mimeType: z.string(),
+  size: z.number(),
+  url: z.string(),
+});
+
 export const registerSchema = z.object({
-  //   studentId: z.string(),
   pushToken: z.string(),
   email: z.string(),
   firstName: z.string(),
@@ -11,11 +17,8 @@ export const registerSchema = z.object({
   birthdate: z.string(),
   phone: z.string(),
   address: z.string(),
-  fileName: z.string(),
-  mimeType: z.string(),
-  size: z.number(),
-  url: z.string(),
   password: z.string(),
+  credentials: z.array(credentialSchema),
 });
 
 export type RegisterForm = z.infer<typeof registerSchema>;

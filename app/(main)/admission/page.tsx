@@ -1,6 +1,7 @@
 import { ScrollArea } from "@/components/ui/scroll-area";
 import prisma from "@/prisma/db";
 import CredentialCard from "./components/CredentialCard";
+import AcceptDeclineButton from "./components/AcceptDeclineButton";
 
 interface Props {
   searchParams: {
@@ -21,8 +22,9 @@ const AdmissionPage = async ({ searchParams }: Props) => {
 
   return (
     <div className="min-h-0">
+      {student && <AcceptDeclineButton studentId={student.id} />}
       <ScrollArea className="h-full">
-        <div className="p-6">
+        <div className="p-6 space-y-4">
           {student?.credentials.map((credential) => (
             <CredentialCard
               studentId={student.id}
