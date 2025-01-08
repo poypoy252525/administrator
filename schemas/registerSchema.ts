@@ -18,7 +18,7 @@ export const registerSchema = z.object({
   phone: z.string(),
   address: z.string(),
   password: z.string(),
-  credentials: z.array(credentialSchema),
+  credentials: z.array(credentialSchema.nullable()),
 });
 
 export type RegisterForm = z.infer<typeof registerSchema>;

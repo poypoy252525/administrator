@@ -1,10 +1,9 @@
 "use client";
 
-import * as React from "react";
-import { format } from "date-fns";
+import { format, subDays } from "date-fns";
 import { Calendar as CalendarIcon } from "lucide-react";
+import * as React from "react";
 
-import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
 import {
@@ -12,6 +11,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { cn } from "@/lib/utils";
 
 interface Props {
   onValueChange: (date: Date) => void;
@@ -46,7 +46,7 @@ const ScheduleDatePicker = ({ onValueChange }: Props) => {
           selected={date}
           onSelect={setDate}
           initialFocus
-          disabled={(date) => date < new Date()}
+          disabled={(date) => date < subDays(new Date(), 1)}
         />
       </PopoverContent>
     </Popover>

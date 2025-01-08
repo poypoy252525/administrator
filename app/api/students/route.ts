@@ -43,7 +43,7 @@ export const POST = async (request: NextRequest) => {
         studentId: `${Math.floor(Math.random() * 100)}`,
         fullName: `${data.firstName} ${data.middleName} ${data.lastName}`,
         credentials: {
-          create: data.credentials,
+          create: data.credentials.filter((c) => c !== null),
         },
       },
     });
