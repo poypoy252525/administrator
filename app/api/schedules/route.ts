@@ -18,5 +18,7 @@ export const GET = async () => {
   if (!schedules)
     return NextResponse.json({ message: "No schedules data" }, { status: 404 });
 
+  console.log(schedules);
+
   return NextResponse.json(schedules, { status: 200 });
 };

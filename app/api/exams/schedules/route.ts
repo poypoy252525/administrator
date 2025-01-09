@@ -13,6 +13,8 @@ export const POST = async (request: NextRequest) => {
 
   const { data } = validation;
 
+  console.log(data);
+
   const date = new Date(data.date);
   date.setHours(data.hour, data.minute);
 
